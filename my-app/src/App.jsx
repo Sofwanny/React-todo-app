@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './App.css';
 
 export default function Todo() {
   const [todos, setTodos] = useState([]);
@@ -20,7 +21,7 @@ export default function Todo() {
   };
 
   return (
-    <div>
+    <div class="container">
       <h1>Todo List</h1>
 
       <input
