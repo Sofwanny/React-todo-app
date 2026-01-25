@@ -21,26 +21,31 @@ export default function Todo() {
   };
 
   return (
-    <div class="container">
-      <h1>Todo List</h1>
-
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Add a new todo"
-      />
-      <button onClick={addTodo}>Add Todo</button>
+    <div className="container">
+      <div className="header">
+        <div className="logo">📝 <span>Todo</span></div>
+        <div className="controls">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Add a new todo"
+          />
+          <button className="add-btn" onClick={addTodo}>Add</button>
+        </div>
+      </div>
 
       <ul>
         {todos.map((todo) => (
           <li
             key={todo.id}
             onClick={() => toggleTodo(todo.id)}
-            style={{ textDecoration: todo.completed ? 'line-through' : 'none', cursor: 'pointer' }}
+            className={todo.completed ? 'completed' : ''}
+            style={{ cursor: 'pointer' }}
           >
             {todo.text}
             <button
+              className="delete"
               onClick={(e) => {
                 e.stopPropagation();
                 deleteTodo(todo.id);
