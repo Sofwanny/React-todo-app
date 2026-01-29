@@ -4,10 +4,10 @@
     {
       "src": "my-app/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "my-app/dist" }
+      "config": { "distDir": "dist" }
     }
   ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
